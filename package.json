@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' dist/server.js"
+    "dev": "concurrently -k \"nodemon --watch 'src/**/*.ts' --exec 'ts-node' dist/server.js\" \"sass src/views/index.sass:src/views/index.css --watch\""
   },
   "dependencies": {
     "express": "^5.2.1"
@@ -17,10 +17,12 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.2.3",
+    "concurrently": "^9.2.1",
     "dotenv": "^17.3.1",
     "ejs": "^4.0.1",
     "eslint": "^10.0.0",
     "nodemon": "^3.1.11",
+    "sass": "^1.97.3",
     "ts-node": "^10.9.2"
   }
 }
