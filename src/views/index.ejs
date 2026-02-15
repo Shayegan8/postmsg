@@ -12,19 +12,21 @@
     <div class="header">
         Message pusher app
     </div>
+    <div class="newMsg">
+        <a href="/new" target="_blank">Add new message here</a>
+    </div>
     <div class="gridshit">
         <% data.forEach(message=> { %>
             <div class="each">
                 <div class="head">
                     <%= message.user %>
                 </div>
-                <div class="splitor"></div>
                 <div>
                     <div class="msg">
                         <%= message.text %>
                     </div>
                     <div class="date">
-                        <%= message.createdAt %>
+                        <%= message.added %>
                     </div>
                 </div>
             </div>

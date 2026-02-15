@@ -8,8 +8,12 @@ $green: #17a723
 $cyan: #9cccba
 $purple: #9b59b6
 $border-cyan: #a4ffe1
+$border-yellow: #ffaf38
 $border-orange: #ff4800
 $background: #303030
+
+*
+    box-sizing: border-box
 
 body
     height: 100vh
@@ -18,25 +22,51 @@ body
     flex-direction: column
     background-color: $background
 
+.newMsg
+    @extend %center
+    flex-direction: column
+    gap: 10px
+    width: 100%
+    color: $white
+    font-size: 1.5em
+    text-decoration: none
+
+.newMsg a:visited
+    text-decoration: none
+    color: inherit
+
+.newMsg a
+    text-decoration: none
+
 .gridshit
     display: grid
     grid-template-columns: repeat(4, 1fr)
-    padding: 2%
-    width: 100%
     gap: 10px
+    box-sizing: border-box
+    padding: 1%
+    overflow: scroll
+    scrollbar-width: thin
+    scrollbar-color: $cyan rgba(0, 0, 0, 0)
     .each
-        width: 300px
+        user-select: none
         height: 270px
         border-radius: 2%
         background-image: linear-gradient(45deg, $white, $cyan)
-        border-left: 1px solid $border-cyan
-        border-left-width: 5px
+        border-left: 3px solid $border-orange
         display: flex
         flex-direction: column
         overflow: hidden
         .msg
+            overflow: scroll
+            scrollbar-width: thin
+            user-select: text
             padding: 1%
 
+.date
+    font-size: 0.8em
+    margin-top: 170px
+    text-align: right
+    padding: 1%
 .head
     width: 100%
     height: 32px
@@ -46,6 +76,7 @@ body
     @extend %center
     padding: 1%
     background-color: $green
+    border-bottom: 0.5px solid black
 
 .header
     @extend %center
@@ -60,8 +91,10 @@ body
     text-shadow: 1px 1px 10px 10px rgba(0, 0, 0), -1px -1px 10px 10px rgba(0, 0, 0)
     padding: 1%
 
-.splitor
-    background: $border-orange
-    width: 100%
-    height: 0.1px
-    padding: 0.5%
+@media screen and (max-width: 997px)
+    .gridshit
+        grid-template-columns: repeat(2, 1fr)
+
+@media screen and (max-width: 600px)
+    .gridshit
+        grid-template-columns: repeat(1, 1fr)
